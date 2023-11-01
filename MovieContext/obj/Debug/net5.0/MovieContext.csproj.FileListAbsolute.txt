@@ -1,0 +1,15 @@
+C:\Users\Admin\Downloads\Anime\MovieContext\bin\Debug\net5.0\MovieContext.deps.json
+C:\Users\Admin\Downloads\Anime\MovieContext\bin\Debug\net5.0\MovieContext.runtimeconfig.json
+C:\Users\Admin\Downloads\Anime\MovieContext\bin\Debug\net5.0\MovieContext.runtimeconfig.dev.json
+C:\Users\Admin\Downloads\Anime\MovieContext\bin\Debug\net5.0\MovieContext.dll
+C:\Users\Admin\Downloads\Anime\MovieContext\bin\Debug\net5.0\MovieContext.pdb
+C:\Users\Admin\Downloads\Anime\MovieContext\obj\Debug\net5.0\MovieContext.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\Anime\MovieContext\obj\Debug\net5.0\MovieContext.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Downloads\Anime\MovieContext\obj\Debug\net5.0\MovieContext.AssemblyInfoInputs.cache
+C:\Users\Admin\Downloads\Anime\MovieContext\obj\Debug\net5.0\MovieContext.AssemblyInfo.cs
+C:\Users\Admin\Downloads\Anime\MovieContext\obj\Debug\net5.0\MovieContext.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\Anime\MovieContext\obj\Debug\net5.0\MovieContext.dll
+C:\Users\Admin\Downloads\Anime\MovieContext\obj\Debug\net5.0\refint\MovieContext.dll
+C:\Users\Admin\Downloads\Anime\MovieContext\obj\Debug\net5.0\MovieContext.pdb
+C:\Users\Admin\Downloads\Anime\MovieContext\obj\Debug\net5.0\MovieContext.genruntimeconfig.cache
+C:\Users\Admin\Downloads\Anime\MovieContext\obj\Debug\net5.0\ref\MovieContext.dll
