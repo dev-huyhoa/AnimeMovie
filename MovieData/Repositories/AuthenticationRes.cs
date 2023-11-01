@@ -32,7 +32,7 @@ namespace MovieData.Repositories
         {
             try
             {
-                var user = _db.Users.SingleOrDefault(p => p.Email == model.Email && p.Password == model.Password);
+                var user = _db.Users.SingleOrDefault(p => p.Email == model.Email && p.Password == model.Password && p.IsDelete == false);
                 if (user == null)
                 {
                     res.Success = false;

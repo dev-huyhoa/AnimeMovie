@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using MovieContext.Model.Movie;
 using MovieData.Interfaces;
 using MovieData.Repositories;
+using MovieShare.Middleware;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,6 +80,7 @@ namespace MovieAnime
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MovieAnime v1"));
             }
+            app.UseMiddleware<UnauthorizedMiddleware>();
 
             app.UseHttpsRedirection();
 
@@ -86,7 +88,6 @@ namespace MovieAnime
 
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
