@@ -9,6 +9,7 @@ namespace MovieData.Interfaces
 {
     public interface IRole
     {
-        Response GetsRole();
+        Task<Response> GetsRole();
+        Response SaveRole();
     }
 }

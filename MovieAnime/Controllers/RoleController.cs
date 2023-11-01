@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MovieContext.Model.Movie;
 using MovieData.Interfaces;
+using System.Threading.Tasks;
 using Travel.Shared.ViewModels;
 
 namespace MovieAnime.Controllers
@@ -22,10 +23,11 @@ namespace MovieAnime.Controllers
         [HttpGet]
         [Authorize]
         [Route("listRole")]
-        public object GetsRole()
+        public async Task<object> GetsRole()
         {
-            res = role.GetsRole();
+            res = await role.GetsRole();
             return Ok(res);
         }
+
     }
 }

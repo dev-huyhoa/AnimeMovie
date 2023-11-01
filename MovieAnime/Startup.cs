@@ -41,6 +41,8 @@ namespace MovieAnime
                     options.UseSqlServer(Configuration.GetConnectionString("MovieEntities")));
 
             services.AddScoped<IRole, RoleRes>();
+            services.AddScoped(typeof(IRepositoryAsync<>), typeof(RepositoryAsync<>));
+
             services.AddScoped<IAuthentication, AuthenticationRes>();
 
 
