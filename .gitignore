@@ -3,6 +3,10 @@
 **/bin/Release/
 **/obj/
 **/.vs/
+*.vs/
+MovieAnime/bin
+MovieAnime
+MovieShare/obj
 MovieContext/Migrations/
 MovieContext/wwwroot/
 Travel.Shared/PrUtility.dll
