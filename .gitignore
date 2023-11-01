@@ -1,4 +1,10 @@
-
+*.vsidx
+**/bin/Debug/
+**/bin/Release/
+**/obj/
+**/.vs/
+MovieContext/Migrations/
+MovieContext/wwwroot/
 Travel.Shared/PrUtility.dll
 TravelApi/wwwroot/
 TravelContext/wwwroot/
