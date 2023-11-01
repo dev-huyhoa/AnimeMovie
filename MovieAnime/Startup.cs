@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -40,43 +40,32 @@ namespace MovieAnime
                     options.UseSqlServer(Configuration.GetConnectionString("MovieEntities")));
 
             services.AddScoped<IRole, RoleRes>();
+            services.AddScoped<IAuthentication, AuthenticationRes>();
+
+
+            var key = Configuration["SecretKey:Key"];
+            var keyByte = Encoding.UTF8.GetBytes(key);
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(otp =>
+            {
+                otp.TokenValidationParameters = new TokenValidationParameters
+                {
+                    //tự cấp token
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    
+                    //ký vào
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(keyByte),
+
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieAnime", Version = "v1" });
-            });
-
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-            {
-                options.RequireHttpsMetadata = false;
-                options.SaveToken = true;
-                options.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidAudience = Configuration["TokenEmployee:Audience"],
-                    ValidIssuer = Configuration["TokenEmployee:Issuer"],
-                    ValidateLifetime = true,
-                    //ClockSkew = TimeSpan.Zero,
-                    ClockSkew = TimeSpan.FromMinutes(Convert.ToInt16(Configuration["TokenEmployee:TimeExpired"])),
-                    //ClockSkew = TimeSpan.FromSeconds(2220),
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenEmployee:Key"])),
-
-                };
-                options.Events = new JwtBearerEvents
-                {
-                    OnMessageReceived = context =>
-                    {
-                        var accessToken = context.Request.Query["access_token"];
-                        if (!string.IsNullOrEmpty(accessToken))
-                        {
-                            context.Token = accessToken;
-                        }
-                        return Task.CompletedTask;
-                    }
-                };
             });
 
         }
@@ -95,6 +84,7 @@ namespace MovieAnime
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -20,7 +20,8 @@ namespace MovieAnime.Controllers
         }
 
         [HttpGet]
-        [Route("list-role")]
+        [Authorize]
+        [Route("listRole")]
         public object GetsRole()
         {
             res = role.GetsRole();
