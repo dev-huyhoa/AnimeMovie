@@ -5,7 +5,6 @@
 **/.vs/
 *.vs/
 MovieAnime/bin
-MovieAnime
 MovieShare/obj
 MovieContext/Migrations/
 MovieContext/wwwroot/
